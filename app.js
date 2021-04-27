@@ -4,7 +4,7 @@ const axios = require("axios");
 
 const app = express();
 const token = process.env.TOKEN;
-
+const port = process.env.PORT
 const coingecko = process.env.COIN;
 const tel = `https://api.telegram.org/bot${token}/sendMessage`;
 
@@ -60,4 +60,4 @@ function sendMessage(url, message, reply, res){
     });
  }
 
- app.listen(3000, () => console.log("Telegram bot is listening on port 3000!"));
+ app.listen(port, () => console.log("Telegram bot is listening on port 3000!"));

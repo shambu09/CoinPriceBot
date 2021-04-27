@@ -60,4 +60,4 @@ function sendMessage(url, message, reply, res){
     });
  }
 
- app.listen(port, () => console.log("Telegram bot is listening on port 3000!"));
+ app.listen(port, () => console.log(`Telegram bot is listening on port ${port}!`));

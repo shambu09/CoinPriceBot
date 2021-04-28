@@ -40,12 +40,13 @@ app.post("/start_bot", (req, res)=>{
 });
 
 app.get("/", (req, res)=>{
-    res.send("Welcome to Price bot");
+    res.send("Welcome to Price bot v2.0");
 });
 
 app.post("/price", (req, res)=>{
     const { message } = req.body;
-    getAssInUsd(tel, message, res);
+    // getAssInUsd(tel, message, res);
+    sendMessage(tel, message, "U pressed /price", res);
 });
 
 function sendMessage(url, message, reply, res){
@@ -60,4 +61,5 @@ function sendMessage(url, message, reply, res){
     });
  }
 
+ port = port||3000;
  app.listen(port, () => console.log(`Telegram bot is listening on port ${port}!`));

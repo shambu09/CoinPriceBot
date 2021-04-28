@@ -40,7 +40,7 @@ const getAssInUsd = (tel, message, res)=>{
 app.post("/", (req, res)=>{
     const { message } = req.body;
     reply = "Welcome to the Coin Price Bot v2";
-    if(message.text.toLowerCase().indexOf("hi") !== -1)
+    if(message.text.toLowerCase().indexOf("/start") !== -1)
         sendMessage(tel,message,reply,res);
 
     else if(message.text.toLowerCase().indexOf("/price") !== -1)

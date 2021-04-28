@@ -35,7 +35,7 @@ const getAssInUsd = (tel, message, res)=>{
 }
 
 app.post("/start_bot", (req, res)=>{
-    const { message } = req.body;
+    const { message } = req.body.message;
     sendMessage(req.data);
     sendMessage(tel, message, "Welcome to the Coin Price Bot v2", res);
 });

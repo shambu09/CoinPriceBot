@@ -41,13 +41,13 @@ app.post("/", (req, res)=>{
     const { message } = req.body;
     reply = "Welcome to the Coin Price Bot v2";
     if(message.text.toLowerCase().indexOf("hi") !== -1)
-        sendMessage(telegram_url,message,reply,res);
+        sendMessage(tel,message,reply,res);
 
     else if(message.text.toLowerCase().indexOf("/price") !== -1)
         getAssInUsd(tel, message, res);
     
     else
-        sendMessage(telegram_url,message,"Invalid Command",res);
+        sendMessage(tel,message,"Invalid Command",res);
 });
 
 app.get("/", (req, res)=>{

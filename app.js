@@ -27,27 +27,31 @@ const getAssInUsd = (tel, message, res)=>{
     .then(function (response) {
         // handle success
         reply = `The Price of ASS rn is: $ ${returnAssInUsd(response.data).toFixed(12)}`;
-        sendMessage(tel, message, reply, res);
     })
     .catch(function (error) {
         console.log(error)
+        reply = "Error";
     })
+    .then(function () {
+        sendMessage(tel, message, reply, res);
+    });
 }
 
 app.post("/start_bot", (req, res)=>{
     const { message } = req.body;
-    console.log(req.body)
-    sendMessage(tel, message, "Welcome to the Coin Price Bot v2", res);
+    reply = "Welcome to the Coin Price Bot v2";
+    if(message.text.toLowerCase().indexOf("hi") !== -1)
+        sendMessage(telegram_url,message,reply,res);
+
+    else if(message.text.toLowerCase().indexOf("/price") !== -1)
+        getAssInUsd(tel, message, res);
+    
+    else
+        sendMessage(telegram_url,message,"Invalid Command",res);
 });
 
 app.get("/", (req, res)=>{
     res.send("Welcome to Price bot v2.0");
-});
-
-app.post("/price", (req, res)=>{
-    const { message } = req.body;
-    // getAssInUsd(tel, message, res);
-    sendMessage(tel, message, "U pressed /price", res);
 });
 
 function sendMessage(url, message, reply, res){

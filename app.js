@@ -52,7 +52,7 @@ app.post("/price", (req, res)=>{
 
 function sendMessage(url, message, reply, res){
     axios.post(url, {
-        'chat_id': message.my_chat_member.chat.id,
+        'chat_id': message.chat.id,
         'text': reply
         }).then(response => {
             console.log("Message posted");

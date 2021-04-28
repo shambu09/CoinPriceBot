@@ -37,7 +37,7 @@ const getAssInUsd = (tel, message, res)=>{
     });
 }
 
-app.post("/start_bot", (req, res)=>{
+app.post("/", (req, res)=>{
     const { message } = req.body;
     reply = "Welcome to the Coin Price Bot v2";
     if(message.text.toLowerCase().indexOf("hi") !== -1)
